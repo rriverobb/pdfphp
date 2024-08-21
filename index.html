@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PDF Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <span
+      style="
+        background-color: #ff8800;
+        color: #fff;
+        border: 1px solid #000;
+        text-align: center;
+        padding: 2px 10px;
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+      "
+      >Export as PDF</span
+    >
+    <form id="pdfForm" action="m.php" method="post">
+      <table>
+        <!-- FIRST ROW ------------------------------------------------------------------------------------------ -->
+        <tr>
+          <td style="width: 50%; border: 1px solid #000">
+            <h1 style="text-align: center">
+              <img src="Bold-Business-logo.png" />
+            </h1>
+            <h3>SERVICE ORDER</h3>
+            <table>
+              <tr>
+                <td>
+                  <label for="control_no">Control No</label><br />
+                  <input
+                    readonly
+                    id="control_no"
+                    name="control_no"
+                    style="font-weight: 700"
+                  />
+                </td>
+                <td>
+                  <label for="quote_date">Quote Date </label><br />
+                  <input
+                    readonly
+                    type="date"
+                    id="quote_date"
+                    name="quote_date"
+                    style="font-weight: 700"
+                  />
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td style="width: 50%; border: 1px solid #000">
+            <h3>BOLD BUSINESS REPRESENTATIVE</h3>
+            <table class="mid">
+              <tr>
+                <td>
+                  <label for="bold_rep_name">Name</label><br />
+                  <input id="bold_rep_name" name="bold_rep_name" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="bold_rep_title">Title</label><br />
+                  <input id="bold_rep_title" name="bold_rep_title" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="bold_rep_email">Email</label><br />
+                  <input id="bold_rep_email" name="bold_rep_email" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="bold_rep_phone">Phone</label><br />
+                  <input id="bold_rep_phone" name="bold_rep_phone" />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!-- SECOND ROW ------------------------------------------------------------------------------------------ -->
+      <table>
+        <tr>
+          <td style="border: 1px solid #000">
+            <h3>CUSTOMER INFORMATION</h3>
+            <table class="short">
+              <tr>
+                <td style="width: 50%">
+                  <label for="cust_info_customer">Customer</label><br />
+                  <input id="cust_info_customer" name="cust_info_customer" />
+                </td>
+                <td>
+                  <label for="cust_info_email">Email</label><br />
+                  <input id="cust_info_email" name="cust_info_email" />
+                </td>
+              </tr>
+            </table>
+            <table class="short">
+              <tr>
+                <td style="width: 50%">
+                  <label for="cust_info_contact">Contact</label><br />
+                  <input id="cust_info_contact" name="cust_info_contact" />
+                </td>
+                <td>
+                  <label for="cust_info_phone">Phone</label><br />
+                  <input
+                    type="tel"
+                    id="cust_info_phone"
+                    name="cust_info_phone"
+                  />
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td>
+                  <label for="cust_info_billing_address">Billing Address</label
+                  ><br />
+                  <input
+                    id="cust_info_billing_address"
+                    name="cust_info_billing_address"
+                  />
+                </td>
+                <td>
+                  <label for="cust_info_city">City</label><br />
+                  <input id="cust_info_city" name="cust_info_city" />
+                </td>
+                <td>
+                  <label for="cust_info_state">State</label><br />
+                  <input id="cust_info_state" name="cust_info_state" />
+                </td>
+                <td>
+                  <label for="cust_info_zip_code">Zip Code</label><br />
+                  <input id="cust_info_zip_code" name="cust_info_zip_code" />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!-- THIRD ROW ------------------------------------------------------------------------------------------ -->
+      <table>
+        <tr>
+          <td style="border: 1px solid #000">
+            <h3>PROJECT INFORMATION</h3>
+            <table>
+              <tr>
+                <td>
+                  <label for="proj_info_project_name">Project Name</label><br />
+                  <input
+                    id="proj_info_project_name"
+                    name="proj_info_project_name"
+                  />
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                  <label for="proj_info_prefered_date_type"
+                    >Prefered Start Date</label
+                  ><br />
+                  <select
+                    id="proj_info_prefered_date_type"
+                    name="proj_info_prefered_date_type"
+                  >
+                    <option value="ASAP">ASAP</option>
+                    <option value="TBD">TBD</option>
+                    <option value="Upon Execution">Upon Execution</option>
+                    <option value="Date">Select Date</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="proj_info_contact"
+                    >Contact (if different from above)</label
+                  ><br />
+                  <input id="proj_info_contact" name="proj_info_contact" />
+                </td>
+                <td>
+                  <label for="proj_info_email">Email</label><br />
+                  <input
+                    type="email"
+                    id="proj_info_email"
+                    name="proj_info_email"
+                  />
+                </td>
+                <td>
+                  <div id="proj_info_start_date_cont" style="display: none">
+                    <label for="proj_info_start_date"
+                      >Date <small>(mm/dd/yyyy)</small></label
+                    ><br />
+                    <input
+                      type="date"
+                      id="proj_info_start_date"
+                      name="proj_info_start_date"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!-- FOURTH ROW ------------------------------------------------------------------------------------------ -->
+      <table>
+        <tr>
+          <td style="border: 1px solid #000">
+            <h3>SERVICES</h3>
+            <p>Bold Business will provide the following:</p>
+            <table id="services">
+              <tr>
+                <th>&nbsp;</th>
+                <th style="width: 50%">Description</th>
+                <th>Initial Units</th>
+                <th>Unit Rate</th>
+                <th>Extended Cost</th>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    id="btn"
+                    onclick="addRow()"
+                    style="
+                      font-weight: 700;
+                      font-size: 20px;
+                      cursor: pointer;
+                      border: 1px solid #000;
+                      border-radius: 50%;
+                      padding: 5px 10px;
+                      line-height: 1;
+                    "
+                    >+</span
+                  >
+                </td>
+                <td style="width: 50%">
+                  <textarea
+                    id="services_description_1"
+                    name="services_description_1"
+                    rows="2"
+                    style="width: 95%"
+                  ></textarea>
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    id="services_initial_units_1"
+                    name="services_initial_units_1"
+                    onchange="calcTotal()"
+                    value="1"
+                  />
+                </td>
+                <td>
+                  $
+                  <input
+                    type="number"
+                    id="services_unit_rate_1"
+                    name="services_unit_rate_1"
+                    style="width: 50%"
+                    onchange="calcTotal()"
+                    step="0.01"
+                  />
+                </td>
+                <td>
+                  <input
+                    readonly
+                    type="number"
+                    id="services_extended_cost_1"
+                    name="services_extended_cost_1"
+                  />
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td style="width: 80%">
+                  <label for="services_notes">Notes: </label><br />
+                  <textarea
+                    id="services_notes"
+                    name="services_notes"
+                    rows="5"
+                    style="width: 95%"
+                  ></textarea>
+                </td>
+                <td>
+                  <label for="services_extended_cost_total">Total</label><br />
+                  $
+                  <input
+                    readonly
+                    id="services_extended_cost_total"
+                    name="services_extended_cost_total"
+                    style="width: 70%"
+                  />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td style="width: 80%">
+            <h4 style="text-align: left">ACCEPTANCE</h4>
+            <p style="text-align: left">
+              IN WITNESS WHEREOF, the parties hereto have caused their duly
+              authorized representatives to execute this Service Order at the
+              rates and total cost for the above described services in
+              accordance with the Commercial Terms and Conditions located at
+              <a href="https://www.boldbusiness.com/terms/" target="_blank"
+                >https://www.boldbusiness.com/terms</a
+              >
+            </p>
+          </td>
+          <td></td>
+        </tr>
+      </table>
+      <br />
+      <table style="text-align: center; border-spacing: 30px">
+        <tr>
+          <td style="width: 50%">
+            <p
+              style="
+                border-bottom: 2px solid #000;
+                width: 90%;
+                display: block;
+                margin: 0 auto;
+              "
+            ></p>
+            <br />
+            Authorized Signature for Bold Business LLC
+          </td>
+          <td style="width: 50%">
+            <p
+              style="
+                border-bottom: 2px solid #000;
+                width: 90%;
+                display: block;
+                margin: 0 auto;
+              "
+            ></p>
+            <br />Authorized Signature for (Entered Customer Name)
+          </td>
+        </tr>
+        <tr>
+          <td><br /></td>
+          <td><br /></td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              id="printed_name_title_1"
+              name="printed_name_title_1"
+              style="text-align: center"
+            />
+            <br /><br />
+            Printed Name and Title
+          </td>
+          <td>
+            <input
+              id="printed_name_title_2"
+              name="printed_name_title_2"
+              style="text-align: center"
+            />
+            <br /><br />
+            Printed Name and Title
+          </td>
+        </tr>
+        <tr>
+          <td><br /></td>
+          <td><br /></td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              id="date_signed_1"
+              name="date_signed_1"
+              type="text"
+              style="text-align: center"
+            />
+            <br /><br />
+            Date Signed
+          </td>
+          <td>
+            <input
+              id="date_signed_2"
+              name="date_signed_2"
+              type="text"
+              style="text-align: center"
+            />
+            <br /><br />
+            Date Signed
+          </td>
+        </tr>
+      </table>
+
+      <input type="hidden" id="serv_count" name="serv_count" />
+      <p style="text-align: center">
+        Bold Business LLC - 263 13th Ave S - St. Petersburg, FL 33701 -
+        212-913-9132
+      </p>
+      <br />
+      <button
+        type="submit"
+        id="submit"
+        style="
+          background-color: #ff8800;
+          cursor: pointer;
+          color: #fff;
+          font-size: 18px;
+          border: 1px solid #000;
+          text-align: center;
+          padding: 5px 15px;
+          display: block;
+          width: fit-content;
+          margin: 0 auto;
+        "
+      >
+        Generate PDF
+      </button>
+    </form>
+
+    <br />
+
+    <script src="julianDate.min.js"></script>
+    <script>
+      // Get current date
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, "0");
+      var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+      var yyyy = today.getFullYear();
+
+      // Format the date string in yyyy-mm-dd
+      today = yyyy + "-" + mm + "-" + dd;
+
+      // Set the value of the input element
+      document.getElementById("quote_date").value = today;
+
+      // Gett Julian date
+      var j = new JulianDate();
+      document.getElementById("control_no").value = j.julian();
+      console.log(j.getDate());
+
+      // Fetch the Julian date from the server
+      /* fetch("/julian-date")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          document.getElementById("control_no").value = data.julianDate;
+        })
+        .catch((error) => {
+          console.error("Error fetching Julian date:", error);
+          document.getElementById("control_no").value = "Error";
+        });
+        */
+
+      // Hide or Display the Start Date depending on the selected Prefered Start Date
+
+      document
+        .getElementById("proj_info_prefered_date_type")
+        .addEventListener("change", function () {
+          if (this.value === "Date") {
+            document.getElementById("proj_info_start_date_cont").style.display =
+              "block";
+          } else {
+            document.getElementById("proj_info_start_date_cont").style.display =
+              "none";
+            document.getElementById("proj_info_start_date").value = "";
+          }
+        });
+
+      // Add rows under Services
+      let count = 1;
+      function addRow() {
+        count++;
+        // Get the table element in which you want to add row
+        let table = document.getElementById("services");
+
+        // Create a row using the inserRow() method and
+        // specify the index where you want to add the row
+        let row = table.insertRow(-1); // We are adding at the end
+
+        // Create table cells
+        let c1 = row.insertCell(0);
+        let c2 = row.insertCell(1);
+        let c3 = row.insertCell(2);
+        let c4 = row.insertCell(3);
+        let c5 = row.insertCell(4);
+
+        // Add data to c1 and c2
+        c1.innerHTML = " ";
+        c2.innerHTML = "";
+        c2.innerHTML =
+          '<textarea id="services_description_' +
+          count +
+          '" name="services_description_' +
+          count +
+          '" style="width:95%"></textarea>';
+        c3.innerHTML =
+          '<input type="number" id="services_initial_units_' +
+          count +
+          '" name="services_initial_units_' +
+          count +
+          '" onchange="calcTotal()" value="1" />';
+        c4.innerHTML =
+          '$ <input type="number" id="services_unit_rate_' +
+          count +
+          '" name="services_unit_rate_' +
+          count +
+          '" style="width: 50%"; onchange="calcTotal()" step="0.01" />';
+        c5.innerHTML =
+          '<input readonly type="number" id="services_extended_cost_' +
+          count +
+          '" name="services_extended_cost_' +
+          count +
+          '" />';
+      }
+
+      //calculate total
+      function calcTotal() {
+        let total = 0;
+
+        for (let x = 1; x <= count; x++) {
+          // Retrieve the values and convert them to numbers
+          let initialUnits =
+            parseFloat(
+              document.getElementById("services_initial_units_" + x).value
+            ) || 0;
+          let unitRate =
+            parseFloat(
+              document.getElementById("services_unit_rate_" + x).value
+            ) || 0;
+
+          // Calculate the subtotal
+          let subTotal = initialUnits * unitRate;
+
+          // Assign the subtotal to the respective field
+          document.getElementById("services_extended_cost_" + x).value =
+            subTotal.toFixed(2);
+
+          // Add the subtotal to the total
+          total = total + subTotal;
+
+          console.log(`SubTotal for item ${x}:`, subTotal);
+          console.log(`Running Total:`, total);
+        }
+
+        // Assign the final total to the respective field (if needed)
+        document.getElementById("services_extended_cost_total").value =
+          total.toFixed(2);
+      }
+
+      // When submit button
+      document
+        .getElementById("pdfForm")
+        .addEventListener("submit", function (event) {
+          // event.preventDefault();
+          document.getElementById("serv_count").value = count;
+        });
+    </script>
+  </body>
+</html>

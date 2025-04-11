@@ -1,52 +1,94 @@
-@page {
-  margin: 0;
+@page { margin: 0; }
+
+@font-face {
+    font-family: 'BarlowCondensed';
+    src: URL('../fonts/BarlowCondensed-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
+@font-face {
+    font-family: 'BarlowCondensed';
+    src: URL('../fonts/BarlowCondensed-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
 
 body {
-  font-family: Arial, sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
+
+div{ display: flex; justify-content: flex-start; align-items: center; gap: 10px; /*flex-wrap: wrap;*/ }
+
+#banner{ background-image: url('../images/banner.png'); background-repeat: no-repeat; background-size: cover; background-position: center right; padding: 30px 50px; flex-direction: column; align-items: flex-start; }
+#banner img{ width: 123px; }
+#banner h1{ font-family: 'BarlowCondensed'; font-weight: 700; font-size: 72px; color: #FFF; padding: 0; margin: 0; }
+#banner h2{ font-family: 'BarlowCondensed'; font-weight: 400; font-size: 30px; color: #FFF; padding: 0; margin: 0; }
+
+
 h3 {
-  text-align: center;
-  background: #ddd;
-  padding: 8px;
-  font-size: 16px;
-  margin: 0;
+text-align: center;
+background: #0583f2;
+padding: 8px 0;
+border-radius: 8px;
+font-size: 16px;
+margin: 0;
+width: 100%;
+color: #FFFFFF;
 }
+h5 {
+    text-align: center;
+    background: #FFFFFF;
+    padding: 8px 0;
+    border-radius: 8px;
+    font-size: 16px;
+    margin: 0;
+    width: fit-content;
+    color: #000000;
+    padding: 5px 10px;
+    }
 p {
-  text-align: center;
+text-align: center;
 }
 table {
-  width: 100%;
-  border-spacing: 15px;
+width: 100%;
+border-spacing: 0;
 }
 th {
-  text-align: left;
+text-align: left;
+padding: 10px 1% 5px 1%;
+font-weight: 600;
 }
+td{ padding: 10px 1%; font-weight: 600; }
 
 label {
-  font-size: 16px;
-  font-weight: 600;
+font-size: 16px;
+font-weight: 600;
+flex-shrink: 0;
 }
-input,
-select {
-  padding: 5px 10px;
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-  width: 90%;
-  font-size: 16px;
+input {
+padding: 10px;
+border:1px solid #000000;
+font-size: 16px;
+background: none;
+width: 100%;
+-webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 textarea {
-  padding: 5px 10px;
-  font-size: 16px;
+padding: 5px 10px;
+font-size: 16px;
 }
 input:read-only {
-  background-color: #eee;
+    /* background-color: #eee; */
 }
-
 .short input {
-  /* width: 45%; */
+/* width: 45%; */
 }
 .mid input {
-  /* width: 67%; */
+/* width: 67%; */
 }

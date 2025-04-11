@@ -1,0 +1,61 @@
+@page { margin: 10px; }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+h1{ margin: 5px; text-align: center; }
+h3 {
+    text-align: center;
+    background: #ddd;
+    padding: 2px;
+    font-size: 13px;
+    margin: 0;
+    display: block;
+    width: 100%;
+}
+h4{ font-size: 13px; }
+p {
+    text-align: center;
+    padding: 0;
+    margin: 2px;
+    font-size:13px;
+    text-decoration: underline;
+}
+p div{ border-bottom: 1px solid #000; }
+table {
+    width: 100%;
+    border-spacing: 5px;
+}
+.flex{ display: flex; flex-direction: row; justify-content: space-between; align-items: center; }
+.flex input{ flex-grow: 1; }
+th {
+    text-align: left;
+    font-size: 13px;
+}
+label {
+    font-size: 13px;
+    font-weight: 700;
+    text-wrap: nowrap;
+}
+input {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    
+    font-size: 13px;
+}
+textarea {
+    font-size: 13px;
+}
+input:read-only {
+    background-color: #eee;
+}
+.short input {
+    /* width: 45%; */
+}
+.mid input {
+    /* width: 67%; */
+}
+</style>
